@@ -7,8 +7,8 @@
  * @link       http://github.com/trilobit-gmbh/contao-constants-bundle
  */
 
-use Trilobit\ConstantsBundle\ConstantsModel;
 use Trilobit\ConstantsBundle\ConstantsInsertTags;
+use Trilobit\ConstantsBundle\ConstantsModel;
 
 $GLOBALS['BE_MOD']['trilobit']['tl_constants'] = [
     'tables' => ['tl_constants'],

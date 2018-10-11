@@ -71,19 +71,19 @@ $GLOBALS['TL_DCA']['tl_constants'] = [
             'toggle' => [
                 'label' => &$GLOBALS['TL_LANG']['tl_constants']['toggle'],
                 'attributes' => 'onclick="Backend.getScrollOffset();"',
-                'haste_ajax_operation'  => [
-                    'field'     => 'published',
-                    'options'    => [
+                'haste_ajax_operation' => [
+                    'field' => 'published',
+                    'options' => [
                         [
-                            'value'     => '',
-                            'icon'      => 'invisible.svg'
+                            'value' => '',
+                            'icon' => 'invisible.svg',
                         ],
                         [
-                            'value'     => '1',
-                            'icon'      => 'visible.svg'
-                        ]
-                    ]
-                ]
+                            'value' => '1',
+                            'icon' => 'visible.svg',
+                        ],
+                    ],
+                ],
             ],
             'show' => [
                 'label' => &$GLOBALS['TL_LANG']['tl_constants']['show'],
