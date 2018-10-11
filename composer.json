@@ -9,10 +9,10 @@
             "homepage": "https://github.com/trilobit-gmbh"
         }
     ],
-    "version": "1.0",
     "require": {
         "php": "^7.0",
-        "contao/core-bundle": "~4.4"
+        "contao/core-bundle": "~4.4",
+        "codefog/contao-haste": "^4.0"
     },
     "require-dev": {
         "contao/manager-plugin": "^2.0",
