@@ -1,7 +1,7 @@
 Constants Bundle
 ==============================================
 
-Das Constants Bundle fügt dem Backend von Contao den Punkt Konstanten hinzu, wo Sie mit einer Bezeichnung und einem dazugehörenden Wert eine oder mehrere Konstanten festlegen können. Diese können dann wiederum durch einen Insert-Tag überall in ihrer Contao Installation eingefügt werden. Das hat den Vorteil das Sie bestimmte Werte an mehreren Stellen einfügen können, sie aber nicht mehr alle einzeln ändern müssen, sondern dies nun über den Punkt Konstanten machen könne. Zusätzlich ist es möglich Konstanten mit einem weiteren Insert-Tag statt eines Wertes anzulegen, wodurch das einbinden von Bildern oder einzelnen Artikel ermöglicht wird.
+Das Constants Bundle fügt dem Backend von Contao den Punkt Konstanten hinzu, wo Sie mit einer Bezeichnung und einem dazugehörenden Wert eine oder mehrere Konstanten festlegen können. Diese können dann wiederum durch einen Insert-Tag überall in ihrer Contao Installation eingefügt werden. Das hat den Vorteil das Sie bestimmte Werte an mehreren Stellen einfügen können, sie aber nicht mehr alle einzeln ändern müssen, sondern dies nun über den Punkt Konstanten machen könne. Zusätzlich ist es möglich Konstanten mit einem weiteren Insert-Tag statt eines Wertes anzulegen, wodurch das Einbinden von Bildern oder einzelnen Artikeln ermöglicht wird.
 
 
 Aufbau
