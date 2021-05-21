@@ -14,6 +14,8 @@ $GLOBALS['TL_LANG']['tl_constants']['published_legend'] = 'Publication';
 // fields
 $GLOBALS['TL_LANG']['tl_constants']['title'][0] = 'Description';
 $GLOBALS['TL_LANG']['tl_constants']['title'][1] = 'Please enter the element description.';
+$GLOBALS['TL_LANG']['tl_constants']['useWysiwygEditor'][0] = 'Use rich text editor';
+$GLOBALS['TL_LANG']['tl_constants']['useWysiwygEditor'][1] = 'Choose this option in order to use a rich text editor for the value.';
 $GLOBALS['TL_LANG']['tl_constants']['value'][0] = 'Value';
 $GLOBALS['TL_LANG']['tl_constants']['value'][1] = 'Please enter the element value';
 $GLOBALS['TL_LANG']['tl_constants']['published'][0] = 'Publish element';

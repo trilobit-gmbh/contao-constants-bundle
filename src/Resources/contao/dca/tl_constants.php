@@ -12,6 +12,9 @@ $GLOBALS['TL_DCA']['tl_constants'] = [
     'config' => [
         'dataContainer' => 'Table',
         'enableVersioning' => true,
+        'onload_callback' => [
+            [\Trilobit\ConstantsBundle\EventListener\DataContainer\ConstantsListener::class, 'modifyDca']
+        ],
         'sql' => [
             'keys' => [
                 'id' => 'primary',
@@ -95,7 +98,7 @@ $GLOBALS['TL_DCA']['tl_constants'] = [
 
     // Palettes
     'palettes' => [
-        'default' => '{key_legend},name,value;'
+        'default' => '{key_legend},name,useWysiwygEditor,value;'
                                        .'{published_legend:hide},published,start,stop',
     ],
 
@@ -112,13 +115,20 @@ $GLOBALS['TL_DCA']['tl_constants'] = [
             'eval' => ['rgxp' => 'alias', 'maxlength' => 255, 'mandatory' => true, 'unique' => true, 'spaceToUnderscore' => true, 'preserveTags' => true, 'doNotCopy' => true, 'tl_class' => 'w50'],
             'sql' => "varchar(255) NOT NULL default ''",
         ],
+        'useWysiwygEditor' => [
+            'label' => &$GLOBALS['TL_LANG']['tl_constants']['useWysiwygEditor'],
+            'exclude' => true,
+            'inputType' => 'checkbox',
+            'eval' => ['tl_class' => 'w50', 'submitOnChange' => true],
+            'sql' => "char(1) NOT NULL default ''"
+        ],
         'value' => [
             'label' => &$GLOBALS['TL_LANG']['tl_constants']['value'],
             'exclude' => true,
             'search' => true,
             'filter' => true,
-            'inputType' => 'text',
-            'eval' => ['maxlength' => 255, 'mandatory' => true, 'tl_class' => 'w50'],
+            'inputType' => 'textarea',
+            'eval' => ['mandatory' => true, 'tl_class' => 'long clr'],
             'sql' => 'mediumtext NULL',
         ],
         'published' => [

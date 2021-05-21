@@ -55,3 +55,13 @@ Compatibility
 
 - Contao version ~4.4
 - Contao version ~4.9
+
+Configuration
+-------------
+
+You can define the following configuration parameters via your `config.yml` file:
+
+```yaml
+trilobit_constants:
+  allow_html: true # default: false; allow the unescaped storage of your html-based constants
+```
