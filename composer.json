@@ -10,7 +10,7 @@
         }
     ],
     "require": {
-        "php": "^7.0",
+        "php": "^7.3",
         "contao/core-bundle": "~4.4",
         "codefog/contao-haste": "^4.0"
     },
@@ -25,16 +25,7 @@
     "autoload": {
         "psr-4": {
             "Trilobit\\ConstantsBundle\\": "src/"
-        },
-        "classmap": [
-            "src/Resources/contao/"
-        ],
-        "exclude-from-classmap": [
-            "src/Resources/contao/config/",
-            "src/Resources/contao/dca/",
-            "src/Resources/contao/languages/",
-            "src/Resources/contao/templates/"
-        ]
+        }
     },
     "extra": {
         "contao-manager-plugin": "Trilobit\\ConstantsBundle\\ContaoManager\\Plugin"

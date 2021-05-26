@@ -1,10 +1,17 @@
 <?php
 
+/*
+ * @copyright  trilobit GmbH
+ * @author     trilobit GmbH <https://github.com/trilobit-gmbh>
+ * @license    LGPL-3.0-or-later
+ * @link       http://github.com/trilobit-gmbh/contao-constants-bundle
+ */
+
 namespace Trilobit\ConstantsBundle\EventListener\DataContainer;
 
 use Contao\DataContainer;
 use Contao\System;
-use Trilobit\ConstantsBundle\ConstantsModel;
+use Trilobit\ConstantsBundle\Model\ConstantsModel;
 
 class ConstantsListener
 {
