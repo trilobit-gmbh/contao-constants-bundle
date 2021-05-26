@@ -7,13 +7,15 @@
  * @link       http://github.com/trilobit-gmbh/contao-constants-bundle
  */
 
+use Trilobit\ConstantsBundle\EventListener\DataContainer\ConstantsListener;
+
 $GLOBALS['TL_DCA']['tl_constants'] = [
     // Config
     'config' => [
         'dataContainer' => 'Table',
         'enableVersioning' => true,
         'onload_callback' => [
-            [\Trilobit\ConstantsBundle\EventListener\DataContainer\ConstantsListener::class, 'modifyDca']
+            [ConstantsListener::class, 'modifyDca'],
         ],
         'sql' => [
             'keys' => [
@@ -98,8 +100,7 @@ $GLOBALS['TL_DCA']['tl_constants'] = [
 
     // Palettes
     'palettes' => [
-        'default' => '{key_legend},name,useWysiwygEditor,value;'
-                                       .'{published_legend:hide},published,start,stop',
+        'default' => '{key_legend},name,useWysiwygEditor,value;{published_legend:hide},published,start,stop',
     ],
 
     // Subpalettes
@@ -119,8 +120,8 @@ $GLOBALS['TL_DCA']['tl_constants'] = [
             'label' => &$GLOBALS['TL_LANG']['tl_constants']['useWysiwygEditor'],
             'exclude' => true,
             'inputType' => 'checkbox',
-            'eval' => ['tl_class' => 'w50', 'submitOnChange' => true],
-            'sql' => "char(1) NOT NULL default ''"
+            'eval' => ['tl_class' => 'w50 m12', 'submitOnChange' => true],
+            'sql' => "char(1) NOT NULL default ''",
         ],
         'value' => [
             'label' => &$GLOBALS['TL_LANG']['tl_constants']['value'],

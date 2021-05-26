@@ -7,8 +7,8 @@
  * @link       http://github.com/trilobit-gmbh/contao-constants-bundle
  */
 
-use Trilobit\ConstantsBundle\ConstantsInsertTags;
-use Trilobit\ConstantsBundle\ConstantsModel;
+use Trilobit\ConstantsBundle\EventListener\InsertTagListener;
+use Trilobit\ConstantsBundle\Model\ConstantsModel;
 
 $GLOBALS['BE_MOD']['trilobit']['tl_constants'] = [
     'tables' => ['tl_constants'],
@@ -17,7 +17,7 @@ $GLOBALS['BE_MOD']['trilobit']['tl_constants'] = [
 /*
  * Register hook
  */
-$GLOBALS['TL_HOOKS']['replaceInsertTags'][] = [ConstantsInsertTags::class, 'replaceInsertTags'];
+$GLOBALS['TL_HOOKS']['replaceInsertTags'][] = [InsertTagListener::class, '__invoke'];
 
 /*
  * Models

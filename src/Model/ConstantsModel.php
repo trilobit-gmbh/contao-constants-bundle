@@ -7,9 +7,9 @@
  * @link       http://github.com/trilobit-gmbh/contao-constants-bundle
  */
 
-namespace Trilobit\ConstantsBundle;
+namespace Trilobit\ConstantsBundle\Model;
 
-use Model;
+use Contao\Model;
 
 /**
  * Class SocialmediaModel.
@@ -23,7 +23,6 @@ class ConstantsModel extends Model
 
     /**
      * @param $intId
-     * @param array $arrOptions
      * @param mixed $strName
      *
      * @return mixed
