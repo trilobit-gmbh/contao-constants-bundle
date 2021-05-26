@@ -14,6 +14,8 @@ $GLOBALS['TL_LANG']['tl_constants']['published_legend'] = 'Veröffentlichung';
 // fields
 $GLOBALS['TL_LANG']['tl_constants']['title'][0] = 'Bezeichnung';
 $GLOBALS['TL_LANG']['tl_constants']['title'][1] = 'Bitte geben Sie die Element-Bezeichnung ein.';
+$GLOBALS['TL_LANG']['tl_constants']['useWysiwygEditor'][0] = 'Text-Editor verwenden';
+$GLOBALS['TL_LANG']['tl_constants']['useWysiwygEditor'][1] = 'Wählen Sie diese Option, um einen Texteditor zu verwenden.';
 $GLOBALS['TL_LANG']['tl_constants']['value'][0] = 'Wert';
 $GLOBALS['TL_LANG']['tl_constants']['value'][1] = 'Bitte geben Sie den Element-Wert ein';
 $GLOBALS['TL_LANG']['tl_constants']['published'][0] = 'Element veröffentlichen';

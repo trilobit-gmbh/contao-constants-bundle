@@ -10,6 +10,7 @@
 namespace Trilobit\ConstantsBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
+use Trilobit\ConstantsBundle\DependencyInjection\ConstantsExtension;
 
 /**
  * Configures the trilobit constants bundle.
@@ -18,4 +19,8 @@ use Symfony\Component\HttpKernel\Bundle\Bundle;
  */
 class TrilobitConstantsBundle extends Bundle
 {
+    public function getContainerExtension()
+    {
+        return new ConstantsExtension();
+    }
 }
