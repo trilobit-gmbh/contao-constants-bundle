@@ -50,11 +50,12 @@ Installation
 
 Install the extension via composer: [trilobit-gmbh/contao-constants-bundle](https://packagist.org/packages/trilobit-gmbh/contao-constants-bundle).
 
-Compatibility
--------------
+Kompatibilität / Getestet / Compatibility / Tested
+--------------------------------------------------
 
 - Contao version ~4.4
 - Contao version ~4.9
+- Contao version ~4.11
 
 Configuration
 -------------
