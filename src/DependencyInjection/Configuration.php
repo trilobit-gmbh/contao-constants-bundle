@@ -21,11 +21,13 @@ class Configuration implements ConfigurationInterface
      */
     public function getConfigTreeBuilder()
     {
-        $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('trilobit_constants');
-        $rootNode
+        $treeBuilder = new TreeBuilder('trilobit_constants');
+        $treeBuilder
+            ->getRootNode()
             ->children()
-                ->booleanNode('allow_html')->defaultValue(false)->end()
+                ->booleanNode('allow_html')
+                    ->defaultValue(false)
+                ->end()
             ->end()
         ;
 
