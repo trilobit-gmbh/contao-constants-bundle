@@ -129,7 +129,7 @@ $GLOBALS['TL_DCA']['tl_constants'] = [
             'search' => true,
             'filter' => true,
             'inputType' => 'textarea',
-            'eval' => ['mandatory' => true, 'tl_class' => 'long clr'],
+            'eval' => ['mandatory' => true, 'tl_class' => 'long clr', 'allowHtml' => true],
             'sql' => 'mediumtext NULL',
         ],
         'published' => [
