@@ -16,8 +16,7 @@
     },
     "require-dev": {
         "contao/manager-plugin": "^2.0",
-        "friendsofphp/php-cs-fixer": "^2.1",
-        "leofeyer/optimize-native-functions-fixer": "^1.1"
+        "friendsofphp/php-cs-fixer": "^2.1"
     },
     "conflict": {
         "contao/manager-plugin": "<2.0 || >=3.0"
@@ -31,6 +30,13 @@
         "contao-manager-plugin": "Trilobit\\ConstantsBundle\\ContaoManager\\Plugin",
         "symfony": {
             "require": "3.4.* || 4.4.* || ^5.2"
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "contao-components/installer": true,
+            "contao-community-alliance/composer-plugin": true,
+            "contao/manager-plugin": true
         }
     }
 }
