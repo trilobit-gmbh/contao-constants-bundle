@@ -53,9 +53,8 @@ Install the extension via composer: [trilobit-gmbh/contao-constants-bundle](http
 Kompatibilität / Getestet / Compatibility / Tested
 --------------------------------------------------
 
-- Contao version ~4.4
 - Contao version ~4.9
-- Contao version ~4.11
+- Contao version ~4.13
 
 Configuration
 -------------
