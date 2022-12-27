@@ -15,15 +15,15 @@ use Symfony\Component\DependencyInjection\Extension\Extension;
 
 class ConstantsExtension extends Extension
 {
-    public function load(array $configs, ContainerBuilder $container)
+    public function getAlias(): string
+    {
+        return 'trilobit_constants';
+    }
+
+    public function load(array $configs, ContainerBuilder $container): void
     {
         $configuration = new Configuration();
         $config = $this->processConfiguration($configuration, $configs);
         $container->setParameter($this->getAlias(), $config);
-    }
-
-    public function getAlias()
-    {
-        return 'trilobit_constants';
     }
 }

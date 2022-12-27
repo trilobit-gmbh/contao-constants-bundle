@@ -10,6 +10,7 @@ declare(strict_types=1);
 
 namespace Trilobit\ConstantsBundle;
 
+use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 use Trilobit\ConstantsBundle\DependencyInjection\ConstantsExtension;
 
@@ -20,7 +21,7 @@ use Trilobit\ConstantsBundle\DependencyInjection\ConstantsExtension;
  */
 class TrilobitConstantsBundle extends Bundle
 {
-    public function getContainerExtension()
+    public function getContainerExtension(): ?ExtensionInterface
     {
         return new ConstantsExtension();
     }
