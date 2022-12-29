@@ -39,7 +39,9 @@ $GLOBALS['TL_DCA']['tl_constants'] = [
         ],
         'label' => [
             'fields' => ['name'],
-            'format' => '<span style="color:#999">{{const::</span>%s<span style="color:#999">}}</span>',
+            'label_callback' => (static function($item) {
+                return '<span style="color:#999">{{const::</span>'.$item['name'].'<span style="color:#999">}}</span>';
+            }),
         ],
         'global_operations' => [
             'all' => [
@@ -109,6 +111,7 @@ $GLOBALS['TL_DCA']['tl_constants'] = [
             'inputType' => 'text',
             'eval' => ['rgxp' => 'alias', 'maxlength' => 255, 'mandatory' => true, 'unique' => true, 'spaceToUnderscore' => true, 'preserveTags' => true, 'doNotCopy' => true, 'tl_class' => 'w50'],
             'sql' => "varchar(255) NOT NULL default ''",
+            'label_callback' => null,
         ],
         'useWysiwygEditor' => [
             'exclude' => true,
@@ -125,6 +128,7 @@ $GLOBALS['TL_DCA']['tl_constants'] = [
             'sql' => 'mediumtext NULL',
         ],
         'published' => [
+            'toggle' => true,
             'exclude' => true,
             'filter' => true,
             'inputType' => 'checkbox',
@@ -142,9 +146,7 @@ $GLOBALS['TL_DCA']['tl_constants'] = [
             'eval' => ['rgxp' => 'datim', 'datepicker' => true, 'tl_class' => 'w50 wizard'],
             'sql' => "varchar(10) NOT NULL default ''",
         ],
-
         'id' => [
-            'label' => ['ID'],
             'search' => true,
             'sql' => 'int(10) unsigned NOT NULL auto_increment',
         ],
@@ -161,3 +163,11 @@ $GLOBALS['TL_DCA']['tl_constants'] = [
         ],
     ],
 ];
+
+if (method_exists(DC_Table::class, 'toggle')) {
+    $GLOBALS['TL_DCA']['tl_constants']['list']['operations']['toggle'] = [
+        'href' => 'act=toggle&amp;field=published',
+        'icon' => 'visible.svg',
+        'showInHeader' => true,
+    ];
+}
