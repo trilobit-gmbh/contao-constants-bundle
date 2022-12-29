@@ -1,6 +1,6 @@
 {
     "name": "trilobit-gmbh/contao-constants-bundle",
-    "description": "Contao 4 constants bundle",
+    "description": "Contao 4 / Contao 5 constants bundle",
     "type": "contao-bundle",
     "license": "LGPL-3.0-or-later",
     "authors": [
