@@ -1,18 +1,20 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * @copyright  trilobit GmbH
  * @author     trilobit GmbH <https://github.com/trilobit-gmbh>
  * @license    LGPL-3.0-or-later
- * @link       http://github.com/trilobit-gmbh/contao-constants-bundle
  */
 
+use Contao\DC_Table;
 use Trilobit\ConstantsBundle\EventListener\DataContainer\ConstantsListener;
 
 $GLOBALS['TL_DCA']['tl_constants'] = [
     // Config
     'config' => [
-        'dataContainer' => 'Table',
+        'dataContainer' => DC_Table::class,
         'enableVersioning' => true,
         'onload_callback' => [
             [ConstantsListener::class, 'modifyDca'],
@@ -29,6 +31,7 @@ $GLOBALS['TL_DCA']['tl_constants'] = [
     'list' => [
         'sorting' => [
             'mode' => 5,
+            'rootPaste' => true,
             'icon' => 'modules.svg',
             'fields' => ['sorting'],
             'panelLayout' => 'filter;search,limit',
@@ -36,11 +39,12 @@ $GLOBALS['TL_DCA']['tl_constants'] = [
         ],
         'label' => [
             'fields' => ['name'],
-            'format' => '<span style="color:#999">{{const::</span>%s<span style="color:#999">}}</span>',
+            'label_callback' => (static function($item) {
+                return '<span style="color:#999">{{const::</span>'.$item['name'].'<span style="color:#999">}}</span>';
+            }),
         ],
         'global_operations' => [
             'all' => [
-                'label' => &$GLOBALS['TL_LANG']['MSC']['all'],
                 'href' => 'act=select',
                 'class' => 'header_edit_all',
                 'attributes' => 'onclick="Backend.getScrollOffset();"',
@@ -48,33 +52,27 @@ $GLOBALS['TL_DCA']['tl_constants'] = [
         ],
         'operations' => [
             'edit' => [
-                'label' => &$GLOBALS['TL_LANG']['tl_constants']['edit'],
                 'href' => 'act=edit',
                 'icon' => 'edit.svg',
             ],
             'copy' => [
-                'label' => &$GLOBALS['TL_LANG']['tl_constants']['copy'],
                 'href' => 'act=copy',
                 'icon' => 'copy.svg',
             ],
             'copyChilds' => [
-                'label' => &$GLOBALS['TL_LANG']['tl_constants']['copyChilds'],
                 'href' => 'act=paste&amp;mode=copy&amp;childs=1',
                 'icon' => 'copychilds.svg',
             ],
             'cut' => [
-                'label' => &$GLOBALS['TL_LANG']['tl_constants']['cut'],
                 'href' => 'act=paste&amp;mode=cut',
                 'icon' => 'cut.svg',
             ],
             'delete' => [
-                'label' => &$GLOBALS['TL_LANG']['tl_constants']['delete'],
                 'href' => 'act=delete',
                 'icon' => 'delete.svg',
                 'attributes' => 'onclick="if (!confirm(\''.($GLOBALS['TL_LANG']['MSC']['deleteConfirm'] ?? null).'\')) return false; Backend.getScrollOffset();"',
             ],
             'toggle' => [
-                'label' => &$GLOBALS['TL_LANG']['tl_constants']['toggle'],
                 'attributes' => 'onclick="Backend.getScrollOffset();"',
                 'haste_ajax_operation' => [
                     'field' => 'published',
@@ -91,7 +89,6 @@ $GLOBALS['TL_DCA']['tl_constants'] = [
                 ],
             ],
             'show' => [
-                'label' => &$GLOBALS['TL_LANG']['tl_constants']['show'],
                 'href' => 'act=show',
                 'icon' => 'show.gif',
             ],
@@ -109,22 +106,20 @@ $GLOBALS['TL_DCA']['tl_constants'] = [
     // Fields
     'fields' => [
         'name' => [
-            'label' => &$GLOBALS['TL_LANG']['tl_constants']['title'],
             'exclude' => true,
             'search' => true,
             'inputType' => 'text',
             'eval' => ['rgxp' => 'alias', 'maxlength' => 255, 'mandatory' => true, 'unique' => true, 'spaceToUnderscore' => true, 'preserveTags' => true, 'doNotCopy' => true, 'tl_class' => 'w50'],
             'sql' => "varchar(255) NOT NULL default ''",
+            'label_callback' => null,
         ],
         'useWysiwygEditor' => [
-            'label' => &$GLOBALS['TL_LANG']['tl_constants']['useWysiwygEditor'],
             'exclude' => true,
             'inputType' => 'checkbox',
             'eval' => ['tl_class' => 'w50 m12', 'submitOnChange' => true],
             'sql' => "char(1) NOT NULL default ''",
         ],
         'value' => [
-            'label' => &$GLOBALS['TL_LANG']['tl_constants']['value'],
             'exclude' => true,
             'search' => true,
             'filter' => true,
@@ -133,7 +128,7 @@ $GLOBALS['TL_DCA']['tl_constants'] = [
             'sql' => 'mediumtext NULL',
         ],
         'published' => [
-            'label' => &$GLOBALS['TL_LANG']['tl_constants']['published'],
+            'toggle' => true,
             'exclude' => true,
             'filter' => true,
             'inputType' => 'checkbox',
@@ -141,26 +136,25 @@ $GLOBALS['TL_DCA']['tl_constants'] = [
         ],
         'start' => [
             'exclude' => true,
-            'label' => &$GLOBALS['TL_LANG']['tl_constants']['start'],
             'inputType' => 'text',
             'eval' => ['rgxp' => 'datim', 'datepicker' => true, 'tl_class' => 'w50 wizard'],
             'sql' => "varchar(10) NOT NULL default ''",
         ],
         'stop' => [
             'exclude' => true,
-            'label' => &$GLOBALS['TL_LANG']['tl_constants']['stop'],
             'inputType' => 'text',
             'eval' => ['rgxp' => 'datim', 'datepicker' => true, 'tl_class' => 'w50 wizard'],
             'sql' => "varchar(10) NOT NULL default ''",
         ],
-
         'id' => [
+            'search' => true,
             'sql' => 'int(10) unsigned NOT NULL auto_increment',
         ],
         'pid' => [
             'sql' => "int(10) unsigned NOT NULL default '0'",
         ],
         'tstamp' => [
+            'flag' => 6,
             'sql' => "int(10) unsigned NOT NULL default '0'",
         ],
         'sorting' => [
@@ -169,3 +163,11 @@ $GLOBALS['TL_DCA']['tl_constants'] = [
         ],
     ],
 ];
+
+if (method_exists(DC_Table::class, 'toggle')) {
+    $GLOBALS['TL_DCA']['tl_constants']['list']['operations']['toggle'] = [
+        'href' => 'act=toggle&amp;field=published',
+        'icon' => 'visible.svg',
+        'showInHeader' => true,
+    ];
+}

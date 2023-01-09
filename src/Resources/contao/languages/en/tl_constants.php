@@ -1,10 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * @copyright  trilobit GmbH
  * @author     trilobit GmbH <https://github.com/trilobit-gmbh>
  * @license    LGPL-3.0-or-later
- * @link       http://github.com/trilobit-gmbh/contao-constants-bundle
  */
 
 // legends
@@ -12,8 +13,8 @@ $GLOBALS['TL_LANG']['tl_constants']['key_legend'] = 'Constants';
 $GLOBALS['TL_LANG']['tl_constants']['published_legend'] = 'Publication';
 
 // fields
-$GLOBALS['TL_LANG']['tl_constants']['title'][0] = 'Description';
-$GLOBALS['TL_LANG']['tl_constants']['title'][1] = 'Please enter the element description.';
+$GLOBALS['TL_LANG']['tl_constants']['name'][0] = 'Description';
+$GLOBALS['TL_LANG']['tl_constants']['name'][1] = 'Please enter the element description.';
 $GLOBALS['TL_LANG']['tl_constants']['useWysiwygEditor'][0] = 'Use rich text editor';
 $GLOBALS['TL_LANG']['tl_constants']['useWysiwygEditor'][1] = 'Choose this option in order to use a rich text editor for the value.';
 $GLOBALS['TL_LANG']['tl_constants']['value'][0] = 'Value';
