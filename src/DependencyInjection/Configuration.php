@@ -27,6 +27,14 @@ class Configuration implements ConfigurationInterface
 
         $rootNode
             ->children()
+                ->arrayNode('constants')
+                    ->info('constants vars')
+                    ->children()
+                        ->booleanNode('allow_html')
+                            ->defaultValue(false)
+                        ->end()
+                    ->end()
+                ->end()
                 ->booleanNode('allow_html')
                     ->defaultValue(false)
                 ->end()

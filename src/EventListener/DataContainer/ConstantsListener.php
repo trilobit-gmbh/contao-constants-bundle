@@ -25,6 +25,16 @@ class ConstantsListener
         $dca = &$GLOBALS['TL_DCA']['tl_constants'];
         $bundleConfig = System::getContainer()->getParameter('trilobit_constants');
 
+        if (!isset($bundleConfig['constants'])) {
+            $bundleConfig['constants'] = [];
+
+            if (isset($bundleConfig['allow_html'])) {
+                $bundleConfig['constants']['allow_html'] = $bundleConfig['allow_html'];
+            }
+        }
+
+        $bundleConfig = $bundleConfig['constants'];
+
         if ($constant->useWysiwygEditor) {
             $dca['fields']['value']['eval']['rte'] = 'tinyMCE';
         }
