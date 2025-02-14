@@ -32,6 +32,6 @@ class InsertTagListener
             return false;
         }
 
-        return $result->value;
+        return $result;
     }
 }
