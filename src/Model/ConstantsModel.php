@@ -34,20 +34,26 @@ class ConstantsModel extends Model
         $t = static::$strTable;
         $arrColumns = ["$t.name=?"];
 
-        if (!static::isPreviewMode($arrOptions)) {
-            $time = Date::floorToMinute();
-            $arrColumns[] = "$t.published=1 AND ($t.start='' OR $t.start<='$time') AND ($t.stop='' OR $t.stop>'$time')";
+        // const exists?
+        $check = static::findOneBy($arrColumns, $strName, $arrOptions);
+
+        // check visibility
+        if (null !== $check) {
+            if (!static::isPreviewMode($arrOptions)) {
+                $time = Date::floorToMinute();
+                $arrColumns[] = "$t.published='1' AND ($t.start='' OR $t.start<='$time') AND ($t.stop='' OR $t.stop>'$time')";
+            }
+
+            $arrColumns[] = "$t.tstamp!=0";
+
+            // outdated or not published
+            if (null === $result = static::findOneBy($arrColumns, $strName, $arrOptions)) {
+                return '';
+            }
+
+            return trim($result->value);
         }
 
-        $arrColumns[] = "$t.tstamp!=0";
-
-        /*
-        if (isset($arrOptions['ignoreFePreview']) || !BE_USER_LOGGED_IN) {
-            $time = \Date::floorToMinute();
-            $arrColumns[] = "($t.start='' OR $t.start<='$time') AND ($t.stop='' OR $t.stop>'".($time + 60)."') AND $t.published='1'";
-        }
-        */
-
-        return static::findOneBy($arrColumns, $strName, $arrOptions);
+        return null;
     }
 }
