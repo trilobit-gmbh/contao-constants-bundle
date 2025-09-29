@@ -17,9 +17,8 @@ class InsertTagListener
 {
     /**
      * Class ReplaceInsertTags.
-     *
-     * @Hook("replaceInsertTags")
      */
+    #[\Contao\CoreBundle\DependencyInjection\Attribute\AsHook('replaceInsertTags')]
     public function __invoke(string $tag)
     {
         $chunks = explode('::', $tag);
