@@ -10,7 +10,6 @@ declare(strict_types=1);
 
 namespace Trilobit\ConstantsBundle\EventListener;
 
-use Contao\CoreBundle\ServiceAnnotation\Hook;
 use Trilobit\ConstantsBundle\Model\ConstantsModel;
 
 class InsertTagListener

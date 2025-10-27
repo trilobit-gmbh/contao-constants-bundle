@@ -23,9 +23,6 @@ use Trilobit\ConstantsBundle\TrilobitConstantsBundle;
  */
 class Plugin implements BundlePluginInterface
 {
-    /**
-     * {@inheritDoc}
-     */
     public function getBundles(ParserInterface $parser)
     {
         return [

@@ -23,13 +23,7 @@ class ConstantsModel extends Model
      */
     protected static $strTable = 'tl_constants';
 
-    /**
-     * @param $intId
-     * @param mixed $strName
-     *
-     * @return mixed
-     */
-    public static function findPublishedByName($strName, array $arrOptions = [])
+    public static function findPublishedByName(mixed $strName, array $arrOptions = [])
     {
         $t = static::$strTable;
         $arrColumns = ["$t.name=?"];
@@ -53,7 +47,5 @@ class ConstantsModel extends Model
 
             return trim($result->value);
         }
-
-        return null;
     }
 }
