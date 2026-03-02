@@ -10,16 +10,14 @@ declare(strict_types=1);
 
 namespace Trilobit\ConstantsBundle\EventListener;
 
-use Contao\CoreBundle\ServiceAnnotation\Hook;
 use Trilobit\ConstantsBundle\Model\ConstantsModel;
 
 class InsertTagListener
 {
     /**
      * Class ReplaceInsertTags.
-     *
-     * @Hook("replaceInsertTags")
      */
+    #[\Contao\CoreBundle\DependencyInjection\Attribute\AsHook('replaceInsertTags')]
     public function __invoke(string $tag)
     {
         $chunks = explode('::', $tag);

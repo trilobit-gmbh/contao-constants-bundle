@@ -10,19 +10,13 @@
         }
     ],
     "require": {
-        "php": "^7.3 || ^8.0",
-        "contao/core-bundle": "^4.9 || ^5.0",
-        "codefog/contao-haste": "^4.0 || ^5.0"
+        "php": "^8.0",
+        "contao/core-bundle": "^4.13 || ^5.3"
     },
     "require-dev": {
         "contao/easy-coding-standard": "^3.0",
         "contao/manager-plugin": "^2.3",
         "friendsofphp/php-cs-fixer": "^v3.1.0"
-    },
-    "autoload": {
-        "psr-4": {
-            "Trilobit\\ConstantsBundle\\": "src/"
-        }
     },
     "extra": {
         "contao-manager-plugin": "Trilobit\\ConstantsBundle\\ContaoManager\\Plugin",
@@ -30,12 +24,17 @@
             "require": "3.4.* || 4.4.* || ^5.2"
         }
     },
+    "autoload": {
+        "psr-4": {
+            "Trilobit\\ConstantsBundle\\": "src/"
+        }
+    },
     "config": {
         "allow-plugins": {
             "contao-components/installer": true,
             "dealerdirect/phpcodesniffer-composer-installer": true,
-            "contao-community-alliance/composer-plugin": true,
-            "contao/manager-plugin": true
+            "contao/manager-plugin": true,
+            "php-http/discovery": true
         }
     }
 }
